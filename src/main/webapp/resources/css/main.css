@@ -1,0 +1,184 @@
+@charset "UTF-8";
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+	line-height: 1.6;
+	font-size: 15px;
+	color: #333;
+	font-family: 'pretendard', sans-serif;
+	box-sizing: border-box;
+	font-weight: 400;
+	outline:none;
+	transition: all .3s;
+}
+
+/*main.jsp*/
+
+.mainWrap {width:100%; background:#f5f5f5; margin-top:80px;}
+.mainWrap .menuList{height: 80px; width: 100%; display: flex; justify-content: space-between;align-items: center; 
+background:#fff; border-bottom:1px solid #d7d7d7; padding:0 30px; position:fixed; top:0; left:0;}
+.mainWrap .menuList .tabMenu{display:flex;justify-content: flex-start;align-items: center;}
+.mainWrap .menuList .tabMenu li a{height:80px; display:flex;justify-content:center;
+align-items: center; width:120px; position:relative; font-weight:500; font-size:17px; }
+.mainWrap .menuList .tabMenu li a:after{content:''; display:block; position:absolute; top:50%; right:0;
+width:1px; height:20px; background:#d7d7d7; transform: translateY(-50%);}
+.mainWrap .menuList .tabMenu li:last-child a:after{display:none;}
+.mainWrap .menuList .tabMenu li a:hover, .mainWrap .menuList .tabMenu li a.on{
+	color:#419992; 
+}
+.mainWrap .btnWrap {display: flex;justify-content: flex-end; align-items: center; }
+.mainWrap .btnWrap .btn{height:40px; border-radius:5px; background:#eee; border:1px solid #d7d7d7;
+display: flex;justify-content: center; align-items:center; margin-left:10px; padding:0 15px;}
+.mainWrap .btnWrap .btn.updateBtn{ background:#419992; color:#fff; border-color:#419992;}
+
+
+.tabList{background:#f5f5f5; min-height: calc(100vh - 80px);}
+.tabList > div{display:none; margin-top:30px; padding:30px; }
+/*.tabList > div{background:#fff; display:none; margin-top:30px; padding:30px; box-shadow:3px 5px 5px 0px rgba(55,55,55,0.05);}*/
+.tabList > div.on{display:block;}
+
+
+/*reserve.jsp*/
+.reserveWrap .seatList{background:#fff; box-shadow:3px 5px 5px 0px rgba(55,55,55,0.05); padding:30px;
+display:flex; justify-content: flex-start; align-items: flex-start; flex-wrap:wrap;}
+
+.reserveWrap .seatList li{width:calc(16.66% - 12.5px); margin-right:15px; margin-bottom:15px;}
+.reserveWrap .seatList li:nth-child(6n){margin-right:0;}
+.reserveWrap .seatList li:nth-last-child(-n + 6){margin-bottom:0;}
+.reserveWrap .seatList li a{display:flex;justify-content: flex-start; align-items: flex-start; flex-wrap:wrap;
+padding:12px 20px; border:1px solid #419992; border-radius:10px;}
+.reserveWrap .seatList li a:hover{background:#419992; }
+.reserveWrap .seatList li a .seatNum{width:100%; font-weight:bold; color:#419992; margin-bottom:5px;}
+.reserveWrap .seatList li a:hover .seatNum{color:#fff;}
+.reserveWrap .seatList li a > p{width:100%;}
+.reserveWrap .seatList li a:hover > p > b{color:#fff;}
+.reserveWrap .seatList li a > p > b{font-weight:bold;}
+
+.reserveWrap .seatList li a.reserveSeat{background:#eee; border-color:#d7d7d7;}
+.reserveWrap .seatList li a.reserveSeat .seatNum{color:#000;}
+.reserveWrap .seatList li a.reserveSeat:hover > p > b{color:#000;}
+
+
+.reserveWrap .reserveTable{margin-top:30px; background:#fff; box-shadow:3px 5px 5px 0px rgba(55,55,55,0.05); padding:30px;}
+.reserveWrap .reserveTable .titleBox{display:flex;justify-content: space-between; align-items: flex-end; margin-bottom:10px;}
+.reserveWrap .reserveTable h3{font-size:17px; font-weight:bold; }
+
+.reserveWrap .reserveTable .rightArea{display:flex;justify-content: flex-end; align-items: center; }
+.reserveWrap .reserveTable .searchBox {display:flex;justify-content: flex-end; align-items: center; position:relative; margin-right:10px;}
+.reserveWrap .reserveTable .searchBox select{width:100px; height:35px; border:1px solid #d7d7d7; border-radius:3px; margin-right:5px; padding:0 10px; cursor:pointer;}
+.reserveWrap .reserveTable .searchBox input{width:280px; height:35px; border:1px solid #d7d7d7; border-radius:3px; padding:0 40px 0 10px;}
+.reserveWrap .reserveTable .searchBox .searchBtn{position:absolute; top:0;right:0; width:40px; height:35px; padding:0 10px; display:flex; 
+ justify-content: center; align-items: center; cursor:pointer; }
+.reserveWrap .reserveTable .searchBox .searchBtn img{width:18px;}
+.reserveWrap .reserveTable .rightArea .allBtn{height:35px; padding:0 15px; display:flex; justify-content: center; align-items: center;
+    background: #419992; border-radius: 5px; color:#fff;}
+
+
+.tableWrap{border-bottom:1px solid #d7d7d7; border-top:2px solid #419992; max-height:180px; overflow-y:auto;}
+.tablewrap table{width:100%; table-layout: fixed; border-collapse: collapse;}
+.tablewrap table tr th{display:table-cell; vertical-align:middle; padding:0 10px;
+ background: #f4f4f9;  height: 40px; text-align:center; }
+.tablewrap table tr td{border-top:1px solid #d7d7d7; text-align:center; height:40px; padding:0 10px}
+
+.tablewrap table tr:last-child td{border-bottom:0;}
+
+.tableWrap table tr td small {color: #999;}
+
+
+/*좌석 선택 시스템 팝업*/
+.popupWrap{position:fixed; width:420px; background:#fff; z-index:999; 
+top:50%; left:50%; transform: translate(-50%, -50%); border-radius:10px; border:1px solid #d7d7d7; 
+overflow:hidden; display:none;}
+.bgBlack{position:fixed; width:100%; height:100%; background-color:rgba(0,0,0,0.5);
+z-index:99; top:0; left:0; display:none;}
+
+.popupWrap .titleWrap{padding:10px 30px; border-bottom:1px solid #d7d7d7; background:#f5f5f5;}
+.popupWrap .title{font-size:17px; font-weight:bold; }
+
+.popupWrap .textWrap{padding:20px 30px 10px; }
+.popupWrap .textWrap .inputTxt li{display:flex;justify-content: space-between; align-items:center; 
+margin-bottom:10px;}
+.popupWrap .textWrap .inputTxt li .tit{width:80px; font-weight:bold;}
+.popupWrap .textWrap .inputTxt li input, .popupWrap .textWrap .inputTxt li select
+{width:calc(100% - 80px); height:35px; border:1px solid #d7d7d7; padding:0 10px; border-radius:3px;}
+.popupWrap .textWrap .inputTxt li select{cursor:pointer;}
+
+.popupWrap .btnWrap{border-top:1px solid #d7d7d7;  display:flex;
+justify-content: flex-end; align-items:center; padding:10px 30px;}
+
+.popupWrap .btnWrap .btn{padding:8px 12px; width:90px; display: flex; justify-content: center; align-items:center;
+border:1px solid #d7d7d7; cursor:pointer;}
+
+.popupWrap .btnWrap .btn.reserveBtn{background:#419992; color:#fff; border-color:#419992; }
+
+/*회원정보 member.jsp*/
+.userWrap {
+	background:#fff;
+	box-shadow: 3px 5px 5px 0px rgba(55, 55, 55, 0.05);
+	
+	/*min-height:286px;*/
+}
+
+.userWrap .titleBox{
+	display:flex;
+	justify-content: space-between;
+	align-items:flex-end;
+	border-bottom:1px solid #d7d7d7;
+	padding:30px 30px 20px ;
+}
+
+.userWrap .titleBox h3 {
+	text-align: center;
+	font-weight:bold;
+	font-size:17px;
+}
+
+.userWrap .titleBox #menuList{display:flex; justify-content: flex-end; align-items:center;}
+.userWrap .titleBox #menuList button{display:flex;justify-content: center; align-items: center;
+    height: 35px; border: 1px solid #d7d7d7; border-radius: 5px; margin-left: 10px;
+    cursor: pointer; padding: 0 15px;}
+.userWrap .titleBox #menuList li button:hover{background:#419992; border-color:#419992; color:#fff;}
+
+.userWrap .formArea{padding:30px 0;}
+.userWrap .formArea form{display:flex; justify-content: space-between; align-items:center; width:50%;
+margin:0 auto;}
+
+.userWrap .formArea form .tit{font-size:17px; font-weight:600; width:40px;}
+.userWrap .formArea form input{width:calc(100% - 120px);border: 1px solid #d7d7d7;border-radius: 5px;
+     height: 40px; padding: 0 10px;}
+.userWrap .formArea form button{border: 1px solid #d7d7d7;border-radius: 5px;
+width:60px; height:40px; cursor:pointer;}
+.userWrap .formArea form button:hover{background:#419992; border-color:#419992; color:#fff;}
+
+.userWrap .formArea form.addForm{flex-wrap:wrap; width:100%; padding:0 30px;}
+.userWrap .formArea form.addForm .list{width:calc(33.33% - 40px); display:flex; justify-content: space-between;
+    align-items: center; margin-bottom:10px;}
+.userWrap .formArea form.addForm .list.list02{width:calc(66.67% - 20px);}
+.userWrap .formArea form.addForm .tit {width:70px;}
+.userWrap .formArea form.addForm input{width:calc(100% - 70px);}
+.userWrap .formArea form.addForm .btnWrap{display:flex; justify-content:flex-end; align-items:center; width:100%;
+position:relative;}
+.userWrap .formArea form.addForm .btnWrap #idCheckResult{position:absolute; right:210px; }
+.userWrap .formArea form.addForm .btnWrap button{width:90px; }
+
+.contWrap{background:#fff; box-shadow: 3px 5px 5px 0px rgba(55, 55, 55, 0.05);
+margin-top:30px; }
+
+#content{padding:30px;}
+#content p{text-align:center; color:#888; margin-bottom:10px;}
+
+#content > div{border-bottom:1px solid #d7d7d7; border-top:2px solid #419992; 
+max-height:300px; overflow-y:auto;}
+#content table{width:100%; table-layout: fixed; border-collapse: collapse;  }
+#content table tr th{display:table-cell; vertical-align:middle; padding:0 10px;
+ background: #f4f4f9;  height: 40px; text-align:center; }
+#content table tr td{border-top:1px solid #d7d7d7; text-align:center; height:40px; padding:0 10px}
+
+#content table tr:last-child td{border-bottom:0;}
+
+#content table tr td small {color: #999;}
+
